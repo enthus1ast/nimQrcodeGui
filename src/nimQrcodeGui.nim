@@ -1,11 +1,4 @@
-import strutils
-import pixie
-import nigui
-import QRgen
-import QRgen/renderer
-import cligen
-import os
-import std/tempfiles
+import strutils, pixie, nigui, QRgen, QRgen/renderer, cligen, os, std/tempfiles
 
 proc gui() =
   var qr = newQR("https://github.com/aruZeta/QRgen", ecLevel=qrECH)
@@ -156,8 +149,6 @@ proc gui() =
     if safeFileDialog.file.len > 0:
       writeFile(img,safeFileDialog.file)
 
-
-
   vertContainer.add(input)
 
   var colorContainer = newLayoutContainer(Layout_Horizontal)
@@ -172,23 +163,18 @@ proc gui() =
   roundnessContainer.add(separationOfTheModulesText)
   roundnessContainer.add(errorCorrectionComboBox)
 
-
   var openSaveContainer = newLayoutContainer(Layout_Horizontal)
   vertContainer.add openSaveContainer
   openSaveContainer.add(addCenterImageDialogButton)
   openSaveContainer.add(safeFileDialogButton)
 
-
   window.show()
   app.run()
 
+
 proc cli(text: string, alignmentPatternsRoundness, modulesRoundness, separationOfTheModules: int, 
     errorCorrection: QREcLevel, centerImagePath: string = "", output: string = "", fg = "black", bg = "white") =
-  # var alignmentPatternsRoundness: int
-  # var modulesRoundness: int
-  # var separationOfTheModules: int
-  # var errorCorrection = qrECL
-  # var centerImagePath: string = ""
+
   var img: pixie.Image
 
   if centerImagePath.len > 0 and errorCorrection != qrECH:

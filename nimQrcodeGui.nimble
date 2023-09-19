@@ -2,7 +2,7 @@
 
 version       = "0.1.0"
 author        = "David Krause (enthus1ast)"
-description   = "QR Code generator Gui"
+description   = "A gui and cli application for QR code generation."
 license       = "MIT"
 srcDir        = "src"
 bin           = @["nimQrcodeGui"]
