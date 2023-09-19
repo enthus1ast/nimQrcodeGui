@@ -13,3 +13,4 @@ bin           = @["nimQrcodeGui"]
 requires "nim >= 2.0.0"
 requires "pixie"
 requires "QRgen"
+requires "nigui"
