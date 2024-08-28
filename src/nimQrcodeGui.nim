@@ -139,6 +139,13 @@ proc gui() =
       errorCorrectionComboBox.index = 3
       renderAndDraw()
 
+  ## Clear the center image
+  var clearCenterImageButton = newButton("clear center image")
+  clearCenterImageButton.onClick = proc(event: ClickEvent) =
+    centerImagePath = ""
+    renderAndDraw()
+
+
   ## The safe image Dialog
   var safeFileDialog = newSaveFileDialog()
   safeFileDialog.defaultExtension = ".png"
@@ -166,6 +173,7 @@ proc gui() =
   var openSaveContainer = newLayoutContainer(Layout_Horizontal)
   vertContainer.add openSaveContainer
   openSaveContainer.add(addCenterImageDialogButton)
+  openSaveContainer.add(clearCenterImageButton)
   openSaveContainer.add(safeFileDialogButton)
 
   window.show()
